@@ -18,7 +18,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
-from discord.ext import tasks, commands
+from discord.ext import tasks
 from dotenv import load_dotenv
 
 # Setup logging
@@ -51,11 +51,11 @@ ANA_TOKEN_CONTRACT = "5DkzT65YJvCsZcot9L6qwkJnsBCPmKHjJz3QU7t7QeRW"
 TEAM_WALLET = "BcAoCEdkzV2J21gAjCCEokBw5iMnAe96SbYo9F6QmKWV"
 SOLANA_RPC_URL = "https://api.mainnet-beta.solana.com"
 
-# Setup Discord bot with slash commands
+# Setup Discord bot - FIXED FOR PY-CORD
 intents = discord.Intents.default()
 intents.guilds = True
 intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = discord.Bot(intents=intents)
 
 # Global variables for tracking
 last_ana_price = None
@@ -569,9 +569,9 @@ async def price_command(ctx):
         
         # Format the message
         message = f"""🧠 **ANA Market Update** 
-- **ANA Price:** ${ana_price}
-- **prANA Price:** ${prana_price}
-- **Floor Price:** ${floor_price}
+• **ANA Price:** ${ana_price}
+• **prANA Price:** ${prana_price}
+• **Floor Price:** ${floor_price}
 Powered by Nirvana Protocol. Stay informed, stay sharp. ⚡"""
         
         await ctx.followup.send(message)
