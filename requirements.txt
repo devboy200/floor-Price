@@ -1,0 +1,9 @@
+discord.py
+selenium
+python-dotenv
+webdriver-manager
+requests
+solana
+base58
+websockets
+aiohttp
